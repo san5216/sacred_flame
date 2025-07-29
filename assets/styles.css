@@ -1,0 +1,187 @@
+* {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            background: linear-gradient(135deg, #1a0000, #330000, #1a0000);
+            color: #ff6b35;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        .flame-animation {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .flame {
+            position: absolute;
+            width: 4px;
+            height: 40px;
+            background: linear-gradient(to top, #ff4500, #ffa500, transparent);
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            animation: flicker 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% { transform: rotate(-2deg) scale(1); }
+            50% { transform: rotate(2deg) scale(1.1); }
+            100% { transform: rotate(-1deg) scale(0.9); }
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        header {
+            text-align: center;
+            padding: 60px 0;
+            background: radial-gradient(circle, rgba(255,107,53,0.2), transparent);
+        }
+
+        .logo {
+            font-size: 3rem;
+            font-weight: bold;
+            margin-bottom: 10px;
+            text-shadow: 0 0 20px #ff4500;
+            animation: pulse 3s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { text-shadow: 0 0 20px #ff4500; }
+            50% { text-shadow: 0 0 30px #ff4500, 0 0 40px #ff6b35; }
+        }
+
+        .tagline {
+            text-align: center;
+            font-size: 1.2rem;
+            font-style: italic;
+            opacity: 0.9;
+        }
+
+        .section {
+            margin: 60px 0;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,107,53,0.3);
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            text-align: center;
+            color: #ffa500;
+            text-shadow: 0 0 10px #ff4500;
+        }
+
+        h3 {
+            font-size: 1.8rem;
+            margin: 30px 0 15px 0;
+            color: #ff8c42;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            text-align: justify;
+        }
+
+        .beliefs-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin: 40px 0;
+        }
+
+        .belief-card {
+            background: rgba(255,107,53,0.1);
+            padding: 30px;
+            border-radius: 10px;
+            border: 1px solid rgba(255,107,53,0.3);
+            transition: all 0.3s ease;
+        }
+
+        .belief-card:hover {
+            background: rgba(255,107,53,0.2);
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(255,107,53,0.3);
+        }
+
+        .quote {
+            font-style: italic;
+            font-size: 1.3rem;
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: rgba(255,107,53,0.1);
+            border-left: 5px solid #ff4500;
+            position: relative;
+        }
+
+        .quote::before {
+            content: '"';
+            font-size: 4rem;
+            color: #ff4500;
+            position: absolute;
+            top: -10px;
+            left: 10px;
+        }
+
+        .cta-section {
+            text-align: center;
+            background: radial-gradient(circle, rgba(255,107,53,0.2), transparent);
+            padding: 60px 20px;
+            border-radius: 20px;
+            margin: 60px 0;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 40px;
+            background: linear-gradient(45deg, #ff4500, #ff6b35);
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(255,107,53,0.4);
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(255,107,53,0.6);
+            background: linear-gradient(45deg, #ff6b35, #ffa500);
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px 0;
+            border-top: 1px solid rgba(255,107,53,0.3);
+            margin-top: 60px;
+        }
+
+        .disclaimer {
+            font-size: 0.9rem;
+            opacity: 0.7;
+            margin-top: 20px;
+        }
+
+        @media (max-width: 768px) {
+            .logo { font-size: 2rem; }
+            h2 { font-size: 2rem; }
+            .beliefs-grid { grid-template-columns: 1fr; }
+        }
